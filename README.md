@@ -1,10 +1,8 @@
 # MyDB
 
-> A learning project, built to understand how databases like SQLite work inside.
-> Not meant for production use.
+I had used databases for years without knowing what happens between typing a query and getting rows back, so I wrote one in C++17 to find out. Most of the answer turns out to be shaped by the disk being slow: everything lives in a single file of 4 KB pages, and every table is a B+ tree whose nodes are sized to match one read.
 
-A small SQLite-like database written from scratch in C++17. Data lives in a single file of
-4 KB pages, and every table is its own B+ tree.
+It is a learning project, so the Limitations at the bottom are real ones.
 
 ## Features
 
