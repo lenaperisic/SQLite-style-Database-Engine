@@ -16,6 +16,19 @@ A small SQLite-like database written from scratch in C++17. Data lives in a sing
 - rows stored in SQLite's record format, schema kept in a schema table on page 1
 - free page list: pages from dropped tables and deleted rows are reused
 
+## Project structure
+
+```
+src/
+  main.cpp     REPL loop
+  cli/         meta commands (.tables, .schema, .exit)
+  sql/         tokenizer, parser, statements, expression evaluation
+  engine/      database (tables, schema, transactions), errors
+  storage/     pager, B+ tree nodes, tables, cursors
+  record/      values, rows in SQLite record format, varints
+tests/         Python tests, compared against real SQLite
+```
+
 ## Build
 
 ```sh
@@ -26,7 +39,7 @@ cmake --build build
 ## Usage
 
 ```sh
-./build/untitled mydb.db
+./build/minisqlite mydb.db
 ```
 
 ```
